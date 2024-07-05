@@ -5,3 +5,5 @@ The goal of this project is to use machine learning and Python to create an emai
 Three main ideas are involved in creating an email spam detector: data preprocessing, feature extraction, and machine learning model selection and training. Data preprocessing is cleaning the email text and transforming it into an analysis-ready format. Feature extraction is finding the most important email attributes to distinguish spam from non-spam, like word frequency or specific keywords. Choosing and training the right machine learning model, like a Naive Bayes classifier or a Support Vector Machine, is essential to obtaining high accuracy. Difficulties in this project include managing imbalanced datasets, making sure the model generalizes well to new data, and continuously updating the model to accommodate evolving spam tactics.
 ## Learning Objectives
 
+src/main.py
+
