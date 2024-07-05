@@ -28,7 +28,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 ## Step 1: Load the dataset
-data = pd.read_csv('advertising.csv')
+data = pd.read_csv(r'c:\Users\HP\Downloads\Advertising.csv')
 
 ## Step 2: Prepare the data
 X = data[['TV', 'Radio', 'Newspaper']]  # Features
