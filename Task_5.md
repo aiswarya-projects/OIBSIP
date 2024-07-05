@@ -8,7 +8,7 @@ Data Preprocessing Skills
 Proficiency in Machine Learning Algorithms
 Model Evaluation Techniques
 # src/main.py
-[12:03, 7/5/2024] Akhila M: import pandas as pd
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -59,4 +59,4 @@ plt.xlabel("Actual Sales")
 plt.ylabel("Predicted Sales")
 plt.title("Actual vs Predicted Sales")
 plt.show()
-![ft5](Portable Network Graphics)
+![Example Image](images/ft5.jpg)
