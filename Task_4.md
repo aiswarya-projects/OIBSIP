@@ -6,4 +6,48 @@ Three main ideas are involved in creating an email spam detector: data preproces
 ## Learning Objectives
 
 src/main.py
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+### Load the dataset
+df = pd.read_csv(r'F:\Oasis', encoding='latin-1')
+
+### Drop unnecessary columns
+df.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
+
+### Rename the columns for convenience
+df.rename(columns={'v1': 'label', 'v2': 'message'}, inplace=True)
+
+### Encode the labels (spam = 1, ham = 0)
+df['label'] = df['label'].map({'ham': 0, 'spam': 1})
+
+### Define the features (X) and the target (y)
+X = df['message']
+y = df['label']
+
+### Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+### Create a pipeline that includes count vectorizer, TF-IDF transformer, and a MultinomialNB classifier
+pipeline = Pipeline([
+    ('vect', CountVectorizer()),
+    ('tfidf', TfidfTransformer()),
+    ('clf', MultinomialNB()),
+])
+
+### Train the model
+pipeline.fit(X_train, y_train)
+
+### Make predictions on the test set
+y_pred = pipeline.predict(X_test)
+
+### Evaluate the model
+print('Accuracy:', accuracy_score(y_test, y_pred))
+print('Confusion Matrix:\n', confusion_matrix(y_test, y_pred))
+print('Classification Report:\n', classification_report(y_test, y_pred))
 
